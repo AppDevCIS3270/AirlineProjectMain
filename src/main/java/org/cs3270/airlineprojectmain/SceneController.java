@@ -20,8 +20,4 @@ public class SceneController {
             System.out.println(username  + " " + password);
     }
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 }
