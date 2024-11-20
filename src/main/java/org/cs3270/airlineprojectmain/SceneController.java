@@ -6,8 +6,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class SceneController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
     private TextField usernameField;
@@ -17,10 +15,9 @@ public class SceneController {
 
     @FXML
     private void onLoginPress(){
-        String username = String.valueOf(usernameField);
-        String password = String.valueOf(passwordField);
-        System.out.println(username  + " " + password);
-
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            System.out.println(username  + " " + password);
     }
 
     @FXML
