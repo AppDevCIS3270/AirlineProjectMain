@@ -32,7 +32,7 @@
       </ButtonBar>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button fx:id="signupBt" mnemonicParsing="false" text="or press here to sign up" />
+          <Button fx:id="signupBt" mnemonicParsing="false" onAction="#switchToSignupScene" text="or press here to sign up" />
         </buttons>
       </ButtonBar>
    </children>
