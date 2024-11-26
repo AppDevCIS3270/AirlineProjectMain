@@ -47,6 +47,7 @@ public class SignupSceneController implements Initializable {
     // questions for the signup choicebox
     private String[] questions = {"What city were you born in?", "What is the name of your first pet", "What is your mothers maiden name?"};
 
+    //Useful for personal project.
     @FXML
     @Override
     public void initialize(URL location, ResourceBundle resources) {

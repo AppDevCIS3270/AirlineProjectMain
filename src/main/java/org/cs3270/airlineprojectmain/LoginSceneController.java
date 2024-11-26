@@ -25,8 +25,8 @@ public class LoginSceneController {
     private Scene scene;
     @FXML
     private Parent root;
-// Switches the scene to the LoginScene
-// Switches the scene to the SignupScene
+    // Switches the scene to the LoginScene
+    // Switches the scene to the SignupScene
     public void switchToSignupScene(ActionEvent event) throws IOException{
     try{
         root = FXMLLoader.load(getClass().getResource("signupScene.fxml"));
@@ -51,20 +51,20 @@ public class LoginSceneController {
             System.out.println(usernameField.getText());
             System.out.println(passwordField.getText());
 
-// attempts to make a connection to our database
+            // attempts to make a connection to our database
             Connection connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!");
             // query to match username and password
             String query = "SELECT * FROM users WHERE BINARY username = ? AND  BINARY password = ?";
-// uses a prepared statemnt so we can impliment our own username and passwords
+            // uses a prepared statement so we can implement our own username and passwords
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-// grabs the entered username and password from the user
+            // grabs the entered username and password from the user
             preparedStatement.setString(1, usernameField.getText());
             preparedStatement.setString(2, passwordField.getText());
-// runs the query from the prepared statement and the loginScene fields
+            // runs the query from the prepared statement and the loginScene fields
             ResultSet resultSet = preparedStatement.executeQuery();
             // checks to see if username and password are available in the table
             if(resultSet.next()){
-                System.out.println("Login Succesful " + resultSet.getString("user_id"));
+                System.out.println("Login Successful " + resultSet.getString("user_id"));
             }
             else{
                 System.out.println("Invalid username or password");
@@ -72,10 +72,12 @@ public class LoginSceneController {
             // closes the connection
             connection.close();
         }
+                //Do we need a finally statement for closing connection???
         catch (Exception e){
             // prints whatever errors pop up during run time
             e.printStackTrace();
         }
+
     }
 
 

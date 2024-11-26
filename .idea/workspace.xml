@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="a">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/ExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/SignupSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/SceneController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/loginScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/loginScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/signupScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/signupScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/SignupSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/SignupSceneController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +50,7 @@
 }</component>
   <component name="ProjectId" id="2p5tYaFSJeV2XeNp5Q4XT1sH2Ao" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
