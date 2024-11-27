@@ -1,5 +1,4 @@
 package org.cs3270.airlineprojectmain;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,16 +7,21 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
-
+import org.cs3270.airlineprojectmain.AlertMessage.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+
 public class SignupSceneController implements Initializable {
+
+
     @FXML
     private Stage stage;
 
@@ -53,7 +57,6 @@ public class SignupSceneController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         sqChoiceBox.getItems().addAll(questions);
-
     }
     @FXML
     private TextField firstnameField;
@@ -77,6 +80,14 @@ public class SignupSceneController implements Initializable {
     private TextField sqAnswerField;
 
 
+private boolean isValidSSN(String ssn){
+    return ssn.matches("^\\d{3}-\\d{2}-\\d{4}$");
+}
+private boolean isvalidEmail(String email){
+    return email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+}
+
+
 
 
 @FXML
@@ -85,6 +96,16 @@ Connection connection = null;
                 //NEED TO MAKE SURE THAT USERS CANNOT HAVE DUPLICATE ACCOUNTS, USE SSN AS A WAY TO MAKE SURE, FIGURE THIS OUT, AND MAKE SURE TO USE GENERIC TO FORMAT SSN AND EMAILS SO IT HAS VALID VALUES. THANK YOU FUTURE AJDIN
     public void onSignupPress(){
         try{
+
+            if(!isvalidEmail(emailField.getText())){
+                AlertMessage.showAlert("Invalid email adress. Please enter a valid email");
+                return;
+            }
+            if(!isValidSSN(ssnField.getText())){
+                AlertMessage.showAlert("Invalid SSN format. Please enter a valid SSN");
+                return;
+            }
+
             String selectedQuestion = sqChoiceBox.getValue();
             System.out.println(firstnameField.getText());
             System.out.println(lastnameField.getText());
@@ -119,12 +140,33 @@ Connection connection = null;
 
           if(rowsInserted > 0){
               System.out.println("User registered successfuly.");
+              /*
+                         NEED TO FIX THIS LATER
+              correctBt.setText("User registed successfuly");
+              correctBt.setTextFill(Paint.valueOf("#07f041"));
+               */
           }
           else{
               System.out.println("Failed to register user.");
           }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (SQLIntegrityConstraintViolationException e) {
+            String errorMessage = e.getMessage();
+
+            //checks to see if email,ssn, or username are duplicates
+            if(errorMessage.contains("users.email")){
+                AlertMessage.showAlert("Theres already an account with this email");
+            } 
+            else if (errorMessage.contains("users.username")) {
+                AlertMessage.showAlert("Theres already an account with this username");
+            } else if (errorMessage.contains("users.ssn")) {
+                AlertMessage.showAlert("Theres already an account with this SSN");
+            }
+            else{
+                AlertMessage.showAlert("Database error, An unexpected error has occured : "+ e.getMessage());
+            }
+        }
+        catch (SQLException e){
+            AlertMessage.showAlert("Database error, An unexpected error has occured: "+ e.getMessage());
         }
         finally {
             if(connection != null){

@@ -7,8 +7,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -38,7 +40,8 @@ public class LoginSceneController {
         e.printStackTrace();
      }
     }
-
+    @FXML
+    private Label ErrorText;
     @FXML
     private TextField usernameField;
     @FXML
@@ -63,13 +66,15 @@ public class LoginSceneController {
             ResultSet resultSet = preparedStatement.executeQuery();
             // checks to see if username and password are available in the table
             if(resultSet.next()){
+                ErrorText.setTextFill(Paint.valueOf("#07f041"));
+                ErrorText.setText("Login Successful");
                 System.out.println("Login Successful " + resultSet.getString("user_id"));
             }
             else{
+                ErrorText.setTextFill(Paint.valueOf("#f00707"));
+                ErrorText.setText("invalid username or password");
                 System.out.println("Invalid username or password");
             }
-            // closes the connection
-            connection.close();
         }
         catch (Exception e){
             // prints whatever errors pop up during run time
