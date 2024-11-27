@@ -41,10 +41,9 @@ public class LoginSceneController {
 
     @FXML
     private TextField usernameField;
-
     @FXML
     private PasswordField passwordField;
-
+    Connection connection = null;
     @FXML
     private void onLoginPress(){
         try{
@@ -52,7 +51,7 @@ public class LoginSceneController {
             System.out.println(passwordField.getText());
 
             // attempts to make a connection to our database
-            Connection connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!");
+            connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!");
             // query to match username and password
             String query = "SELECT * FROM users WHERE BINARY username = ? AND  BINARY password = ?";
             // uses a prepared statement so we can implement our own username and passwords
@@ -72,13 +71,19 @@ public class LoginSceneController {
             // closes the connection
             connection.close();
         }
-                //Do we need a finally statement for closing connection???
         catch (Exception e){
             // prints whatever errors pop up during run time
             e.printStackTrace();
         }
-
+        finally {
+            if(connection != null){
+                try{
+                    connection.close();
+                }
+                catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+        }
     }
-
-
 }

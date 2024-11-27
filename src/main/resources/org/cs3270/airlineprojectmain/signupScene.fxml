@@ -34,20 +34,21 @@
             <Label text="email" GridPane.rowIndex="7" />
             <Label text="ssn" GridPane.rowIndex="8" />
             <Label text="Security Question" GridPane.rowIndex="9" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="firstnameField" GridPane.columnIndex="1" />
+            <TextField fx:id="lastnameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="adressField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="zipField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="stateField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="usernameField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="ssnField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <ChoiceBox fx:id="sqChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
             <Label text="Security Answer" GridPane.rowIndex="10" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="sqAnswerField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
          </children>
       </GridPane>
-      <Button fx:id="backToLogin" layoutX="51.0" layoutY="328.0" mnemonicParsing="false" onAction="#switchToLoginScene" text="Switch Back to Login" AnchorPane.bottomAnchor="47.0" />
+      <Button fx:id="backToLogin" layoutX="104.0" layoutY="328.0" mnemonicParsing="false" onAction="#switchToLoginScene" text="Switch Back to Login" AnchorPane.bottomAnchor="47.0" />
+      <Button fx:id="signupBt" layoutX="369.0" layoutY="328.0" mnemonicParsing="false" onAction="#onSignupPress" text="Press here to Sign up" />
    </children>
 </AnchorPane>
