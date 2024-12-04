@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="248.0" prefWidth="243.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cs3270.airlineprojectmain.LoginSceneController">
+<VBox alignment="CENTER" prefHeight="248.0" prefWidth="243.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cs3270.airlineprojectmain.LoginSceneController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -28,7 +28,8 @@
       <Label fx:id="ErrorText" prefHeight="40.0" prefWidth="189.0" textFill="#f00707" underline="true" wrapText="true" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button fx:id="loginBt" mnemonicParsing="false" onAction="#onLoginPress" text="Press to Login" />
+          <Button fx:id="loginBt" mnemonicParsing="false" onAction="#onLoginPress" prefHeight="25.0" prefWidth="120.0" text="Press to Login" />
+            <Button fx:id="ResetBt" mnemonicParsing="false" onAction="#switchToResetScene" text="to reset pass" />
         </buttons>
       </ButtonBar>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">

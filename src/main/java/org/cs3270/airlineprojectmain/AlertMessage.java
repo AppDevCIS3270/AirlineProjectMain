@@ -10,5 +10,4 @@ public class AlertMessage {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
 }
