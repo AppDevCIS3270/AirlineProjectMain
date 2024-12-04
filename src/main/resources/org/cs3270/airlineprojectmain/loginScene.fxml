@@ -25,6 +25,7 @@
             <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="83.0" promptText="Enter Username" GridPane.columnIndex="1" />
          </children>
       </GridPane>
+      <Label fx:id="ErrorText" prefHeight="40.0" prefWidth="189.0" textFill="#f00707" underline="true" wrapText="true" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button fx:id="loginBt" mnemonicParsing="false" onAction="#onLoginPress" text="Press to Login" />
