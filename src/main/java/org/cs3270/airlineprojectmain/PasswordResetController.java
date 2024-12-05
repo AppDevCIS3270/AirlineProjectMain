@@ -1,12 +1,15 @@
 package org.cs3270.airlineprojectmain;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.paint.Paint;
 import org.cs3270.airlineprojectmain.AlertMessage.*;
 import java.sql.*;
 
 
 public class PasswordResetController{
-
+    @FXML
+    private Button backToLogin;
     @FXML
     private TextField usernameField;
     @FXML
@@ -25,8 +28,8 @@ public class PasswordResetController{
     private PasswordField verifyPassword;
     @FXML
     private Button setPasswordBt;
-
-
+    @FXML
+    private Label resetSuccessful;
 
     Connection connection = null;
     public void onUsernameBtPress(){;
@@ -43,7 +46,9 @@ public class PasswordResetController{
             if(resultSet.next()) {
                 String securityQuestion = resultSet.getString("security_question");
                 securityQuestionLabel.setText(securityQuestion);
-
+                answerBt.setVisible(true);
+                enterAnswer.setVisible(true);
+                answerTextField.setVisible(true);
             }
             else{
                  AlertMessage.showAlert("No username found");
@@ -100,23 +105,21 @@ public class PasswordResetController{
                 preparedStatement.setString(2, usernameField.getText());
                 int rowsAffected = preparedStatement.executeUpdate();
                 System.out.println(rowsAffected);
+                resetSuccessful.setTextFill(Paint.valueOf("#07f041"));
+                resetSuccessful.setText("RESET SUCCESSFUL");
+
             }
             else{
                 AlertMessage.showAlert("Passwords do not match");
             }
 
-
-
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
-
-
-
-
+    @FXML
+    public void switchToSignupScene(ActionEvent event){
+        SwitchToScene.switchScene(event, "loginScene.fxml");
+    }
 }

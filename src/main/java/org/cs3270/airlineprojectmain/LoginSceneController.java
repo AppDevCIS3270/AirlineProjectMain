@@ -16,8 +16,7 @@ import java.util.ResourceBundle;
 public class LoginSceneController {
     @FXML
     private Stage stage;
-    @FXML
-    private Button ResetBt;
+
     public void setStage(Stage stage){
         this.stage = stage;
     }
@@ -27,33 +26,10 @@ public class LoginSceneController {
     private Parent root;
     // Switches the scene to the LoginScene
     // Switches the scene to the SignupScene
-    public void switchToSignupScene(ActionEvent event) throws IOException{
-    try{
-        root = FXMLLoader.load(getClass().getResource("signupScene.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();}
-    catch (Exception e){
-        e.printStackTrace();
-     }
-    }
-    public void switchToResetScene(ActionEvent event) throws IOException{
-        try{
-            root = FXMLLoader.load(getClass().getResource("passwordReset.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();}
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
 
-
-
-
+    @FXML
+    private Button ResetBt;
     @FXML
     private Label ErrorText;
     @FXML
@@ -61,6 +37,15 @@ public class LoginSceneController {
     @FXML
     private PasswordField passwordField;
     Connection connection = null;
+    @FXML
+    public void switchToSignupScene(ActionEvent event){
+        SwitchToScene.switchScene(event, "signupScene.fxml");
+    }
+    @FXML
+    public void switchToResetScene(ActionEvent event) {
+        SwitchToScene.switchScene(event, "passwordReset.fxml");
+    }
+
     @FXML
     private void onLoginPress(){
         try{
