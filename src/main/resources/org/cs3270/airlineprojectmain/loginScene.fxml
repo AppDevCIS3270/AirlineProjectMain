@@ -26,6 +26,7 @@
          </children>
       </GridPane>
       <Label fx:id="ErrorText" prefHeight="40.0" prefWidth="189.0" textFill="#f00707" underline="true" wrapText="true" />
+      <Button fx:id="dashboardBt" mnemonicParsing="false" onAction="#switchToDashboardScene" text="Press here to go to dashboard" visible="false" />
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button fx:id="loginBt" mnemonicParsing="false" onAction="#onLoginPress" prefHeight="25.0" prefWidth="120.0" text="Press to Login" />

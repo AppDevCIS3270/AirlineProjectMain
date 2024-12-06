@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="604.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cs3270.airlineprojectmain.FlightBookingController">
+   <children>
+      <TableView fx:id="flightDataTable" layoutX="6.0" layoutY="76.0" prefHeight="351.0" prefWidth="676.0">
+        <columns>
+            <TableColumn fx:id="colFlightId" prefWidth="75.0" text="FlightID" />
+          <TableColumn fx:id="colTo" prefWidth="75.0" text="To" />
+          <TableColumn fx:id="colFrom" prefWidth="75.0" text="From" />
+            <TableColumn fx:id="colAvailableSeats" prefWidth="94.0" text="Available Seats" />
+            <TableColumn fx:id="colDate" prefWidth="181.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button fx:id="button" layoutX="682.0" layoutY="456.0" mnemonicParsing="false" onAction="#loadFlightsData" text="update Table" />
+      <TextField fx:id="flightIdText" layoutX="51.0" layoutY="450.0" promptText="FlightID" />
+      <TextField fx:id="toText" layoutX="221.0" layoutY="450.0" promptText="TO" />
+      <TextField fx:id="fromSeats" layoutX="382.0" layoutY="450.0" promptText="FROM" />
+   </children>
+</AnchorPane>

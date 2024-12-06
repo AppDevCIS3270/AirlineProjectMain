@@ -1,5 +1,6 @@
 package org.cs3270.airlineprojectmain;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -28,6 +29,14 @@ public class DashboardController {
     private TextField destinationCity;
     @FXML
     private TextField seatsAvailable;
+    @FXML
+    private Button bookflightBt;
+
+    @FXML
+    public void switchToBooking(ActionEvent event) {
+        SwitchToScene.switchScene(event, "flightBooking.fxml");
+    }
+
 
 
     //Logic for queries, not sure how to implement yet.

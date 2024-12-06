@@ -10,4 +10,6 @@ module org.cs3270.airlineprojectmain {
 
     opens org.cs3270.airlineprojectmain to javafx.fxml;
     exports org.cs3270.airlineprojectmain;
+    exports org.cs3270.airlineprojectmain.UserClasses;
+    opens org.cs3270.airlineprojectmain.UserClasses to javafx.fxml;
 }

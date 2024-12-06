@@ -27,7 +27,8 @@ public class LoginSceneController {
     // Switches the scene to the LoginScene
     // Switches the scene to the SignupScene
 
-
+    @FXML
+    private Button dashboardBt;
     @FXML
     private Button ResetBt;
     @FXML
@@ -45,6 +46,12 @@ public class LoginSceneController {
     public void switchToResetScene(ActionEvent event) {
         SwitchToScene.switchScene(event, "passwordReset.fxml");
     }
+
+    @FXML
+    public void switchToDashboardScene(ActionEvent event){
+        SwitchToScene.switchScene(event, "Dashboard.fxml");
+    }
+
 
     @FXML
     private void onLoginPress(){
@@ -73,6 +80,8 @@ public class LoginSceneController {
                 ErrorText.setTextFill(Paint.valueOf("#07f041"));
                 ErrorText.setText("Login Successful");
                 System.out.println("Login Successful " + resultSet.getString("user_id"));
+                dashboardBt.setVisible(true);
+
             }
             else{
                 ErrorText.setTextFill(Paint.valueOf("#f00707"));

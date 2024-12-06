@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="a">
+    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="updated Dashboard.fxml">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/FlightBookingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/FlightData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/flightBooking.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/Dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/loginScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/loginScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -32,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AppDevCIS3270/AirlineProjectMain.git&quot;,
-    &quot;accountId&quot;: &quot;62cd9bf2-f4bd-4f9d-9ab9-6442e3f130fe&quot;
+    &quot;accountId&quot;: &quot;d2329ccb-5751-45d4-b97a-41eb11f3cd9a&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -131,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733493990555</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="updated Dashboard.fxml">
+      <option name="closed" value="true" />
+      <created>1733514666020</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733514666020</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,6 +170,7 @@
     <MESSAGE value="Started working on the main login screen. Got login and sign up. Rn the login button only prints the username and password. Also got the DB up with the useres and its either gonna be customers or admins. Will have to figure all this out later." />
     <MESSAGE value="deleted the default hello method to organize it a little bit better" />
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="updated Dashboard.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated Dashboard.fxml" />
   </component>
 </project>
