@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="a">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/Dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/ExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/ExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/signupScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/signupScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732138191606</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="a">
+      <option name="closed" value="true" />
+      <created>1733493990555</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733493990555</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,9 +148,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="f" />
-    <MESSAGE value="a" />
     <MESSAGE value="Started working on the main login screen. Got login and sign up. Rn the login button only prints the username and password. Also got the DB up with the useres and its either gonna be customers or admins. Will have to figure all this out later." />
     <MESSAGE value="deleted the default hello method to organize it a little bit better" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted the default hello method to organize it a little bit better" />
+    <MESSAGE value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
 </project>
