@@ -54,15 +54,20 @@ public class LoginSceneController {
 
             // attempts to make a connection to our database
             connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!");
+
             // query to match username and password
             String query = "SELECT * FROM users WHERE BINARY username = ? AND  BINARY password = ?";
+
             // uses a prepared statement so we can implement our own username and passwords
             PreparedStatement preparedStatement = connection.prepareStatement(query);
+
             // grabs the entered username and password from the user
             preparedStatement.setString(1, usernameField.getText());
             preparedStatement.setString(2, passwordField.getText());
+
             // runs the query from the prepared statement and the loginScene fields
             ResultSet resultSet = preparedStatement.executeQuery();
+
             // checks to see if username and password are available in the table
             if(resultSet.next()){
                 ErrorText.setTextFill(Paint.valueOf("#07f041"));

@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="added password change">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/SwitchToScene.java" afterDir="false" />
+    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="a">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/Dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/ExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/ExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/PasswordResetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/PasswordResetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/passwordReset.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/passwordReset.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/signupScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/signupScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -36,7 +39,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AppDevCIS3270/AirlineProjectMain.git&quot;,
-    &quot;accountId&quot;: &quot;d2329ccb-5751-45d4-b97a-41eb11f3cd9a&quot;
+    &quot;accountId&quot;: &quot;62cd9bf2-f4bd-4f9d-9ab9-6442e3f130fe&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -71,6 +74,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Java Projects/CIS3270 Project + Azure DB connectivity&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -126,47 +130,7 @@
       <option name="project" value="LOCAL" />
       <updated>1732138191606</updated>
     </task>
-    <task id="LOCAL-00006" summary="added onSignupPress. Need to add regular expression rules to email and ssn">
-      <option name="closed" value="true" />
-      <created>1732681254000</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1732681254000</updated>
-    </task>
-    <task id="LOCAL-00007" summary="added onSignupPress. Need to add regular expression rules to email and ssn">
-      <option name="closed" value="true" />
-      <created>1732681455471</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1732681455471</updated>
-    </task>
-    <task id="LOCAL-00008" summary=";">
-      <option name="closed" value="true" />
-      <created>1733342248749</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1733342248749</updated>
-    </task>
-    <task id="LOCAL-00009" summary=";">
-      <option name="closed" value="true" />
-      <created>1733342317590</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1733342317590</updated>
-    </task>
-    <task id="LOCAL-00010" summary="added password change">
-      <option name="closed" value="true" />
-      <created>1733355047721</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1733355047721</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,9 +150,6 @@
     <MESSAGE value="a" />
     <MESSAGE value="Started working on the main login screen. Got login and sign up. Rn the login button only prints the username and password. Also got the DB up with the useres and its either gonna be customers or admins. Will have to figure all this out later." />
     <MESSAGE value="deleted the default hello method to organize it a little bit better" />
-    <MESSAGE value="added onSignupPress. Need to add regular expression rules to email and ssn" />
-    <MESSAGE value=";" />
-    <MESSAGE value="added password change" />
-    <option name="LAST_COMMIT_MESSAGE" value="added password change" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted the default hello method to organize it a little bit better" />
   </component>
 </project>
