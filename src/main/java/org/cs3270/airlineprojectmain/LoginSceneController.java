@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+import org.cs3270.airlineprojectmain.UserClasses.User;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -81,7 +83,7 @@ public class LoginSceneController {
                 ErrorText.setTextFill(Paint.valueOf("#07f041"));
                 ErrorText.setText("Login Successful");
                 System.out.println("Login Successful " + resultSet.getString("user_id"));
-
+                User.setUserId(resultSet.getInt("user_id"));
                 dashboardBt.setVisible(true);
 
             }

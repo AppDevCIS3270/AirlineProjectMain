@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import org.cs3270.airlineprojectmain.UserClasses.User;
 
 public class DashboardController {
 
@@ -37,7 +38,10 @@ public class DashboardController {
         SwitchToScene.switchScene(event, "flightBooking.fxml");
     }
 
-
+    @FXML
+    public void printUserId(){
+        System.out.println(User.getUserId());
+    }
 
     //Logic for queries, not sure how to implement yet.
 

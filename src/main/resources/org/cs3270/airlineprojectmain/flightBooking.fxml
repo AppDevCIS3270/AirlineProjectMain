@@ -18,5 +18,7 @@
       <TextField fx:id="flightIdText" layoutX="51.0" layoutY="450.0" promptText="FlightID" />
       <TextField fx:id="toText" layoutX="221.0" layoutY="450.0" promptText="TO" />
       <TextField fx:id="fromText" layoutX="382.0" layoutY="450.0" promptText="FROM" />
+      <TextField fx:id="flightIdTextBox" layoutX="51.0" layoutY="516.0" promptText="Enter FLightID to book" />
+      <Button fx:id="bookingBt" layoutX="211.0" layoutY="516.0" mnemonicParsing="false" onAction="#onBookingBtPress" text="press here to book" />
    </children>
 </AnchorPane>

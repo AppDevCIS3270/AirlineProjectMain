@@ -1,7 +1,7 @@
 package org.cs3270.airlineprojectmain.UserClasses;
 
 public class User {
-    private int userId;
+    private static int userId;
     private String firstName;
     private String lastName;
     private String address;
@@ -26,11 +26,19 @@ public class User {
     }
 
     // Getters for each property
-    public int getUserId() { return userId; }
+    public static int getUserId() {
+        return userId;
+    }
     public String getFirstName() { return firstName; }
     public String getLastName() { return lastName; }
     public String getAddress() { return address; }
     public String getZip() { return zip; }
     public String getUsername() { return username; }
     public String getPassword() { return password; }
+
+    public static void setUserId(int userId){
+        User.userId = userId;
+    }
+
+
 }

@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="updated Dashboard.fxml">
+    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="users can look up flights">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/FlightBookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/FlightBookingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/Dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/flightBooking.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/flightBooking.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733523039521</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="users can look up flights">
+      <option name="closed" value="true" />
+      <created>1733531333842</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733531333842</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +182,7 @@
     <MESSAGE value="deleted the default hello method to organize it a little bit better" />
     <MESSAGE value="a" />
     <MESSAGE value="updated Dashboard.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated Dashboard.fxml" />
+    <MESSAGE value="users can look up flights" />
+    <option name="LAST_COMMIT_MESSAGE" value="users can look up flights" />
   </component>
 </project>
