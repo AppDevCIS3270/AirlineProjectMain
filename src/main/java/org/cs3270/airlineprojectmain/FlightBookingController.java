@@ -7,8 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.cs3270.airlineprojectmain.UserClasses.FlightData;
+import org.w3c.dom.Text;
 
 import java.net.URL;
 import java.sql.*;
@@ -31,6 +33,13 @@ public class FlightBookingController implements Initializable {
     private TableColumn<FlightData, Integer> colAvailableSeats;
     @FXML
     private TableColumn<FlightData, Integer> colFlightId;
+    @FXML
+    private TextField flightIdText;
+    @FXML
+    private TextField toText;
+    @FXML
+    private TextField fromText;
+
 
     private Connection connection = null;
 
@@ -64,15 +73,36 @@ public class FlightBookingController implements Initializable {
         try {
             // Connect to the database
             connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!");
-
-            // SQL query to get all available flight data
-            String query = "SELECT * FROM flightdata";
+            StringBuilder query = new StringBuilder("SELECT * FROM flightdata WHERE 1=1 ");
 
 
+            if(!flightIdText.getText().isEmpty()){
+                query.append(" AND flightID = ?");
+            }
+            if(!toText.getText().isEmpty()){
+                query.append(" AND destinationCity = ?");
+            }
+            if(!fromText.getText().isEmpty()){
+                query.append(" AND departingCity = ?");
+            }
 
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query.toString());
+
+            int index = 1;
+            if (!flightIdText.getText().isEmpty()) {
+                preparedStatement.setInt(index++, Integer.parseInt(flightIdText.getText()));
+            }
+            if (!toText.getText().isEmpty()) {
+                preparedStatement.setString(index++, toText.getText());
+            }
+            if (!fromText.getText().isEmpty()) {
+                preparedStatement.setString(index++, fromText.getText());
+            }
+
+            System.out.println(preparedStatement);
             ResultSet resultSet = preparedStatement.executeQuery();
-
             // Load the results into an ObservableList
             ObservableList<FlightData> flightData = loadFlightDataFromResultSet(resultSet);
 
@@ -112,4 +142,8 @@ public class FlightBookingController implements Initializable {
         }
         return flightDataList;
     }
+
+
+
+
 }

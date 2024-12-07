@@ -17,6 +17,6 @@
       <Button fx:id="button" layoutX="682.0" layoutY="456.0" mnemonicParsing="false" onAction="#loadFlightsData" text="update Table" />
       <TextField fx:id="flightIdText" layoutX="51.0" layoutY="450.0" promptText="FlightID" />
       <TextField fx:id="toText" layoutX="221.0" layoutY="450.0" promptText="TO" />
-      <TextField fx:id="fromSeats" layoutX="382.0" layoutY="450.0" promptText="FROM" />
+      <TextField fx:id="fromText" layoutX="382.0" layoutY="450.0" promptText="FROM" />
    </children>
 </AnchorPane>

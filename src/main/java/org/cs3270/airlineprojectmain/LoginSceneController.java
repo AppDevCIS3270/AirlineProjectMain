@@ -53,6 +53,7 @@ public class LoginSceneController {
     }
 
 
+
     @FXML
     private void onLoginPress(){
         try{
@@ -80,6 +81,7 @@ public class LoginSceneController {
                 ErrorText.setTextFill(Paint.valueOf("#07f041"));
                 ErrorText.setText("Login Successful");
                 System.out.println("Login Successful " + resultSet.getString("user_id"));
+
                 dashboardBt.setVisible(true);
 
             }
