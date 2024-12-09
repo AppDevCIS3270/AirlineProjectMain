@@ -16,8 +16,8 @@
       </TableView>
       <Label layoutX="183.0" layoutY="89.0" text="WELCOME: USER" />
       <Button fx:id="bookflightBt" layoutX="502.0" layoutY="64.0" mnemonicParsing="false" onAction="#switchToBooking" text="Book a flight" />
-      <Button fx:id="deleteBt" layoutX="354.0" layoutY="22.0" mnemonicParsing="false" onAction="#printUserId" text="Delete a Flight" />
-      <TextField layoutX="451.0" layoutY="22.0" promptText="Enter Flight Id:" />
+      <Button fx:id="deleteBt" layoutX="354.0" layoutY="22.0" mnemonicParsing="false" onAction="#onDelete" text="Delete a Flight" />
+      <TextField fx:id="deleteText" layoutX="451.0" layoutY="22.0" promptText="Enter Flight Id:" />
       <Button fx:id="signout" layoutX="203.0" layoutY="64.0" mnemonicParsing="false" onAction="#signout" text="Press to Sign Out" />
       <Button fx:id="updateFlightBt" layoutX="451.0" layoutY="325.0" mnemonicParsing="false" onAction="#onUpdateFlightBt" text="Update Flights" />
    </children>

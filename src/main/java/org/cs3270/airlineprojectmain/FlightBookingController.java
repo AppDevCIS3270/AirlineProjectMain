@@ -207,7 +207,10 @@ public class FlightBookingController implements Initializable {
                     if(seatsAvailable == 0){
                         AlertMessage.showAlert("Flight full");
                     }
-                    else if(!ifMultipleBooked(flightId) && seatsAvailable > 0){
+                    if (ifTimeConflict(flightId, flightDate, userId)){
+                        AlertMessage.showAlert("There is a time conflict");
+                    }
+                    else if(!ifMultipleBooked(flightId) && seatsAvailable > 0 && !ifTimeConflict(flightId, flightDate, userId)){
                     int rowsInserted = bookingStmt.executeUpdate();
                     if (rowsInserted > 0) {
                         System.out.println("Booking successful!");
@@ -276,12 +279,33 @@ public class FlightBookingController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    private boolean ifTimeConflict(int flightId, LocalDateTime time, int userId){
+        boolean isConflict = false;
+        try {
+            // Convert LocalDateTime to java.sql.Timestamp for time comparisons
+            Timestamp sqlDateStart = Timestamp.valueOf(time.minusHours(24)); // Example: 1 hour before
+            Timestamp sqlDateEnd = Timestamp.valueOf(time.plusHours(24));   // Example: 1 hour after
+            String timeCheckStmt = "SELECT COUNT(*) from bookingdata WHERE user_id = ? and flightDate between ? and ?";
+            PreparedStatement timeConflict = connection.prepareStatement(timeCheckStmt);
+            timeConflict.setInt(1, userId);
+            timeConflict.setTimestamp(2, sqlDateStart);
+            timeConflict.setTimestamp(3, sqlDateEnd); // flight_id of the selected flight
+            ResultSet resultSet = timeConflict.executeQuery();
+            if (resultSet.next()) {
+                isConflict = resultSet.getInt(1) > 0;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            isConflict = true;
+        }
+        return isConflict;
+    }
+
     @FXML
     private void back(ActionEvent event){
         SwitchToScene.switchScene(event, "Dashboard.fxml");
     }
-
-
-
 }
 
