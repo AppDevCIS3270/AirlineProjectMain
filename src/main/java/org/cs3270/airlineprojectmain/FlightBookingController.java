@@ -280,8 +280,5 @@ public class FlightBookingController implements Initializable {
     private void back(ActionEvent event){
         SwitchToScene.switchScene(event, "Dashboard.fxml");
     }
-
-
-
 }
 

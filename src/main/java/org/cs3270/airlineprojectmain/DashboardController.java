@@ -1,5 +1,6 @@
 package org.cs3270.airlineprojectmain;
 
+import org.cs3270.airlineprojectmain.FlightBookingController.*;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,9 +34,8 @@ public class DashboardController implements Initializable {
     @FXML
     private TableColumn<BookedFlights, LocalDateTime> flightDate;
 
-
-
-
+    @FXML
+    private TextField deleteText;
     @FXML
     private Button bookflightBt;
     @FXML
@@ -51,8 +51,70 @@ public class DashboardController implements Initializable {
         SwitchToScene.switchScene(event,"loginScene.fxml");
 }
     @FXML
-    public void printUserId(){
-        System.out.println(User.getUserId());
+    public void onDelete(){
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!");
+            String query = "DELETE FROM bookingdata WHERE flightID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, Integer.parseInt(deleteText.getText()));
+            int rowsAffected = preparedStatement.executeUpdate();
+            updateSeatsAvailable(Integer.parseInt(deleteText.getText()));
+            if(rowsAffected >0){
+                System.out.println("Deleted");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if(connection != null){
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    private void updateSeatsAvailable(int flightId) {
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!");
+
+            String selectSeatsQuery = "SELECT seatsAvailable FROM flightdata WHERE flightID = ?";
+            PreparedStatement selectSeatsStmt = connection.prepareStatement(selectSeatsQuery);
+            selectSeatsStmt.setInt(1, flightId);
+            ResultSet resultSet = selectSeatsStmt.executeQuery();
+
+            if (resultSet.next()) {
+                int currentSeatsAvailable = resultSet.getInt("seatsAvailable");
+
+
+                int newSeatsAvailable = currentSeatsAvailable + 1;
+
+                String updateSeatsQuery = "UPDATE flightdata SET seatsAvailable = ? WHERE flightID = ?";
+                PreparedStatement updateSeatsStmt = connection.prepareStatement(updateSeatsQuery);
+                updateSeatsStmt.setInt(1, newSeatsAvailable);
+                updateSeatsStmt.setInt(2, flightId);
+
+                int rowsUpdated = updateSeatsStmt.executeUpdate();
+                if (rowsUpdated > 0) {
+                    System.out.println("Seats available updated successfully.");
+                }
+            } else {
+                System.out.println("Flight ID not found.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 
