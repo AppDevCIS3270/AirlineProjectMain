@@ -5,18 +5,20 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cs3270.airlineprojectmain.DashboardController">
    <children>
-      <TableView layoutX="8.0" layoutY="106.0" prefHeight="244.0" prefWidth="441.0">
+      <TableView fx:id="userTable" layoutX="8.0" layoutY="106.0" prefHeight="244.0" prefWidth="441.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
+          <TableColumn fx:id="bookingID" prefWidth="75.0" text="bookingID" />
+          <TableColumn fx:id="flightID" prefWidth="75.0" text="FlightID" />
+            <TableColumn fx:id="departingCity" prefWidth="95.0" text="departingCity" />
+            <TableColumn fx:id="destinationCity" prefWidth="87.0" text="DestinationCity" />
+            <TableColumn fx:id="flightDate" prefWidth="108.0" text="FlightDate" />
         </columns>
       </TableView>
       <Label layoutX="183.0" layoutY="89.0" text="WELCOME: USER" />
       <Button fx:id="bookflightBt" layoutX="502.0" layoutY="64.0" mnemonicParsing="false" onAction="#switchToBooking" text="Book a flight" />
       <Button fx:id="deleteBt" layoutX="354.0" layoutY="22.0" mnemonicParsing="false" onAction="#printUserId" text="Delete a Flight" />
       <TextField layoutX="451.0" layoutY="22.0" promptText="Enter Flight Id:" />
+      <Button fx:id="signout" layoutX="203.0" layoutY="64.0" mnemonicParsing="false" onAction="#signout" text="Press to Sign Out" />
+      <Button fx:id="updateFlightBt" layoutX="451.0" layoutY="325.0" mnemonicParsing="false" onAction="#onUpdateFlightBt" text="Update Flights" />
    </children>
 </AnchorPane>

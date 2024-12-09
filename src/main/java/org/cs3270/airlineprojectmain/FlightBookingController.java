@@ -2,10 +2,12 @@ package org.cs3270.airlineprojectmain;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Paint;
 import org.cs3270.airlineprojectmain.UserClasses.FlightData;
 import org.cs3270.airlineprojectmain.UserClasses.User;
 import org.w3c.dom.Text;
@@ -41,8 +43,10 @@ public class FlightBookingController implements Initializable {
     private TextField flightIdTextBox;
     @FXML
     private Button bookingBt;
-
-
+    @FXML
+    private Button back;
+    @FXML
+    private Label success;
 
 
     private Connection connection = null;
@@ -207,23 +211,29 @@ public class FlightBookingController implements Initializable {
                     int rowsInserted = bookingStmt.executeUpdate();
                     if (rowsInserted > 0) {
                         System.out.println("Booking successful!");
+                        success.setTextFill(Paint.valueOf("#07f041"));
+                        success.setText("Booking successful!");
                         // Optionally, update the available seats in the flightdata table
                         updateSeatsAvailable(flightId, seatsAvailable - 1);}
                     } else {
+                        AlertMessage.showAlert("Booking Failed");
                         System.out.println("Booking failed.");
                     }
                 } else {
                     // Handle the case where flightDate is null
+                    AlertMessage.showAlert("Flight date is unavailable");
                     System.out.println("Flight date is unavailable.");
                 }
             } else {
                 // Handle the case where no flight is found for the given ID
+                AlertMessage.showAlert("No flight found with the given Flight ID");
                 System.out.println("No flight found with the given Flight ID.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (NumberFormatException e) {
             // Handle case when the input is not a valid integer
+            AlertMessage.showAlert("Invalid Flight ID. Please enter a valid number");
             System.out.println("Invalid Flight ID. Please enter a valid number.");
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -265,6 +275,10 @@ public class FlightBookingController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    private void back(ActionEvent event){
+        SwitchToScene.switchScene(event, "Dashboard.fxml");
     }
 
 
