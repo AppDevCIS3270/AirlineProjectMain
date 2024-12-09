@@ -1,6 +1,7 @@
 package org.cs3270.airlineprojectmain;
 
 import javafx.beans.Observable;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
     @FXML
-    private TableView<BookedFlights> bookedFlightsTableView;
+    private TableView<BookedFlights> userTable;
     @FXML
     private TableColumn<BookedFlights, Integer> bookingID;
     @FXML
@@ -61,20 +62,23 @@ public class DashboardController implements Initializable {
         flightID.setCellValueFactory(new PropertyValueFactory<BookedFlights, Integer>("flightID"));
         departingCity.setCellValueFactory(new PropertyValueFactory<BookedFlights, String>("departingCity"));
         destinationCity.setCellValueFactory(new PropertyValueFactory<BookedFlights, String>("destinationCity"));
-
+        flightDate.setCellValueFactory(new PropertyValueFactory<BookedFlights, LocalDateTime>("flightDate"));
         flightDate.setCellFactory(col -> {
             return new TableCell<BookedFlights, LocalDateTime>() {
                 @Override
                 protected void updateItem(LocalDateTime item, boolean empty) {
                     super.updateItem(item, empty);
                     if (item != null) {
-                        setText(item.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+                        // Format LocalDateTime to display as 'yyyy-MM-dd HH:mm'
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                        setText(item.format(formatter));
                     } else {
                         setText(null);
                     }
                 }
             };
         });
+        userTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
 Connection connection = null;
@@ -88,32 +92,48 @@ Connection connection = null;
             preparedStatement.setInt(1, User.getUserId());
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            ObservableList<BookedFlights> flightData = loadBookingDataFromResultSet(resultSet);
+            ObservableList<BookedFlights> bookedData = loadBookingDataFromResultSet(resultSet);
 
-            flightData.setItems(flightData);
-
-
-
-
-
+            userTable.setItems(bookedData);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+        finally {
+            try{
+                if(connection != null){
+                    connection.close();
+                }
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
         }
     }
 
     private ObservableList<BookedFlights> loadBookingDataFromResultSet(ResultSet resultSet) {
         try{
-            Integer bookingID = resultSet.
+            ObservableList<BookedFlights> bookedFlights = FXCollections.observableArrayList();
 
+            while(resultSet.next()) {
+
+
+                Integer bookingID = resultSet.getInt("bookingID");
+                Integer flightID = resultSet.getInt("flightID");
+                String departingCity = resultSet.getString("departingCity");
+                String destinationCity = resultSet.getString("destinationCity");
+                LocalDateTime flightDate = resultSet.getTimestamp("flightDate").toLocalDateTime();
+                System.out.println(flightDate);
+
+                BookedFlights bookedFlight = new BookedFlights(bookingID, flightID, departingCity, destinationCity, flightDate);
+                bookedFlights.add(bookedFlight);
+            }
+            return bookedFlights;
 
         }
         catch (Exception e){
             e.printStackTrace();
         }
-
-
-
+        return null;
     }
 
 }
