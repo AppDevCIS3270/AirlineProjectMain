@@ -11,8 +11,6 @@ import java.io.IOException;
 
 public class SwitchToScene {
 
-
-
     public static void switchScene(ActionEvent event, String fxmlFilePath) {
         try {
             // Load the new scene
