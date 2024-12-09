@@ -21,6 +21,6 @@
       <TextField fx:id="flightIdTextBox" layoutX="51.0" layoutY="516.0" promptText="Enter FLightID to book" />
       <Button fx:id="bookingBt" layoutX="211.0" layoutY="516.0" mnemonicParsing="false" onAction="#onBookingBtPress" text="press here to book" />
       <Button fx:id="back" layoutX="14.0" layoutY="44.0" mnemonicParsing="false" onAction="#back" text="back" />
-      <Label fx:id="sucess" layoutX="330.0" layoutY="427.0" />
+      <Label fx:id="success" layoutX="330.0" layoutY="427.0" />
    </children>
 </AnchorPane>
