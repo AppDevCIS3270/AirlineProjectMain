@@ -48,10 +48,8 @@ public class LoginSceneController {
     public void switchToResetScene(ActionEvent event) {
         SwitchToScene.switchScene(event, "passwordReset.fxml");
     }
-
     @FXML
-    public void switchToDashboardScene(ActionEvent event){
-        SwitchToScene.switchScene(event, "Dashboard.fxml");
+    public void switchToDashboardScene(ActionEvent event){SwitchToScene.switchScene(event, "Dashboard.fxml");
     }
 
 
