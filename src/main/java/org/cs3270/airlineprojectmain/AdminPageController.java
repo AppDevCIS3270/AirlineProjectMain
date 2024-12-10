@@ -157,10 +157,15 @@ public class AdminPageController implements Initializable {
             );
 
             // Delete the flight by flightID
-            String deleteQuery = "DELETE FROM flightData WHERE flightID = ?";
-            PreparedStatement deleteStatement = connection.prepareStatement(deleteQuery);
+            String deleteFlightQuery = "DELETE FROM flightData WHERE flightID = ?";
+            PreparedStatement deleteStatement = connection.prepareStatement(deleteFlightQuery);
             int flightIdToDelete = Integer.parseInt(deleteTextID.getText());
             deleteStatement.setInt(1, flightIdToDelete);
+            // Delete from booked flights as well
+            String deleteBookingsQuery = "DELETE FROM bookingData WHERE flightID = ?";
+            PreparedStatement deleteBookingsStatement = connection.prepareStatement(deleteBookingsQuery);
+            deleteBookingsStatement.setInt(1, flightIdToDelete);
+            deleteBookingsStatement.executeUpdate();
             int rowsAffected = deleteStatement.executeUpdate();
 
             if (rowsAffected > 0) {
