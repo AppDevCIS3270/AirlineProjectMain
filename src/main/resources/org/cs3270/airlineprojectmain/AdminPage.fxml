@@ -10,37 +10,53 @@
 
 <AnchorPane prefHeight="554.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cs3270.airlineprojectmain.AdminPageController">
    <children>
-      <TextField fx:id="flightDate" layoutX="27.0" layoutY="136.0" prefHeight="26.0" prefWidth="124.0" />
-      <TextField fx:id="departingCity" layoutX="183.0" layoutY="136.0" prefHeight="26.0" prefWidth="102.0" />
-      <TextField fx:id="destinationCity" layoutX="319.0" layoutY="136.0" prefHeight="26.0" prefWidth="102.0" />
-      <TextField fx:id="availableSeats" layoutX="460.0" layoutY="136.0" prefWidth="102.0" />
-      <Label layoutX="250.0" layoutY="54.0" text="Create Flight">
+      <TextField fx:id="flightDate" layoutX="29.0" layoutY="135.0" prefHeight="26.0" prefWidth="121.0" promptText="Enter Flight Date:">
          <font>
-            <Font size="16.0" />
+            <Font size="11.0" />
+         </font></TextField>
+      <TextField fx:id="departingCity" layoutX="166.0" layoutY="135.0" prefHeight="26.0" prefWidth="114.0" promptText="Enter Departing City:">
+         <font>
+            <Font size="11.0" />
+         </font></TextField>
+      <TextField fx:id="destinationCity" layoutX="312.0" layoutY="135.0" prefHeight="26.0" prefWidth="114.0" promptText="Enter Destination City:">
+         <font>
+            <Font size="11.0" />
+         </font></TextField>
+      <TextField fx:id="availableSeats" layoutX="451.0" layoutY="135.0" prefHeight="26.0" prefWidth="121.0" promptText="Enter Available Seats:">
+         <font>
+            <Font size="11.0" />
+         </font></TextField>
+      <Label alignment="CENTER" layoutX="292.0" layoutY="42.0" prefHeight="26.0" prefWidth="99.0" text="Add Flights">
+         <font>
+            <Font size="19.0" />
          </font></Label>
       <Label layoutX="52.0" layoutY="100.0" text="Flight Date" />
       <Label layoutX="184.0" layoutY="100.0" text="Departing City" />
       <Label layoutX="326.0" layoutY="100.0" text="Destination City" />
       <Label layoutX="470.0" layoutY="100.0" text="Available Seats" />
-      <Button fx:id="newFlight" layoutX="196.0" layoutY="182.0" mnemonicParsing="false" onAction="#createNewFlight" text="Create" />
+      <Button fx:id="newFlight" layoutX="598.0" layoutY="135.0" mnemonicParsing="false" onAction="#createNewFlight" prefHeight="26.0" prefWidth="53.0" text="Add" />
       <Label layoutX="27.0" layoutY="118.0" prefHeight="11.0" prefWidth="124.0" text="Format (2025-02-01 16:17:11)">
          <font>
             <Font size="9.0" />
          </font>
       </Label>
-      <TableView fx:id="flightsTableView" layoutX="27.0" layoutY="224.0" prefHeight="224.0" prefWidth="560.0">
+      <TableView fx:id="flightsTableView" layoutX="27.0" layoutY="224.0" prefHeight="281.0" prefWidth="649.0">
         <columns>
-          <TableColumn fx:id="flightIdColumn" prefWidth="75.0" text="FlightID" />
-          <TableColumn fx:id="flightDateColumn" prefWidth="128.0" text="Flight Date" />
-            <TableColumn fx:id="departingCityColumn" prefWidth="131.0" text="Departing City" />
-            <TableColumn fx:id="destinationCityColumn" prefWidth="132.0" text="Destination City" />
-            <TableColumn fx:id="availableSeatsColumn" prefWidth="93.0" text="Available Seats" />
+          <TableColumn fx:id="flightIdColumn" prefWidth="88.0" text="FlightID" />
+          <TableColumn fx:id="flightDateColumn" prefWidth="182.0" text="Flight Date" />
+            <TableColumn fx:id="departingCityColumn" prefWidth="137.0" text="Departing City" />
+            <TableColumn fx:id="destinationCityColumn" prefWidth="139.0" text="Destination City" />
+            <TableColumn fx:id="availableSeatsColumn" prefWidth="100.0" text="Available Seats" />
         </columns>
       </TableView>
-      <Button layoutX="341.0" layoutY="182.0" mnemonicParsing="false" text="Update" />
-      <TextField fx:id="deleteTextID" layoutX="623.0" layoutY="36.0" prefHeight="37.0" prefWidth="124.0" />
-      <Button fx:id="deleteFlightBt" layoutX="562.0" layoutY="42.0" mnemonicParsing="false" onAction="#ondeleteFlight" text="Delete" />
-      <Label layoutX="663.0" layoutY="14.0" text="Flight ID" />
+      <Button fx:id="updateFlightBt" layoutX="691.0" layoutY="186.0" mnemonicParsing="false" onAction="#onUpdateFlightBt" prefHeight="26.0" prefWidth="59.0" text="Update" />
+      <TextField fx:id="deleteTextID" layoutX="562.0" layoutY="36.0" prefHeight="37.0" prefWidth="124.0" promptText="Enter Flight ID:" />
+      <Button fx:id="deleteFlightBt" layoutX="694.0" layoutY="42.0" mnemonicParsing="false" onAction="#ondeleteFlight" text="Delete" />
+      <Label layoutX="587.0" layoutY="14.0" text="Delete Flight">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <Button fx:id="backToDB" layoutX="21.0" layoutY="23.0" mnemonicParsing="false" onAction="#back" text="Back to Dashboard" />
+      <TextField fx:id="updateTextID" layoutX="563.0" layoutY="180.0" prefHeight="37.0" prefWidth="124.0" promptText="Enter Flight ID:" />
    </children>
 </AnchorPane>

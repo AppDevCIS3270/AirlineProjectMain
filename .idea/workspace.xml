@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="admin is able to delete flights">
+    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="admin delete edit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/AdminPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/AdminPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/AdminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/cs3270/airlineprojectmain/AdminPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +31,12 @@
     &quot;assignee&quot;: &quot;AppDevCIS3270&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/AppDevCIS3270/AirlineProjectMain.git&quot;,
-    &quot;accountId&quot;: &quot;d2329ccb-5751-45d4-b97a-41eb11f3cd9a&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AppDevCIS3270/AirlineProjectMain.git",
+    "accountId": "127831d5-b8cd-43a3-99ff-448a5f0e6ec2"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -216,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733818169169</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="admin delete edit">
+      <option name="closed" value="true" />
+      <created>1733819271046</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1733819271048</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,7 +251,8 @@
     <MESSAGE value="admin can add flights" />
     <MESSAGE value="edit" />
     <MESSAGE value="admin is able to delete flights" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin is able to delete flights" />
+    <MESSAGE value="admin delete edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin delete edit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

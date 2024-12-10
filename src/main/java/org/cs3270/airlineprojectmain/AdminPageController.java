@@ -8,11 +8,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.cs3270.airlineprojectmain.UserClasses.BookedFlights;
 import org.cs3270.airlineprojectmain.UserClasses.FlightData;
+import org.cs3270.airlineprojectmain.UserClasses.User;
+
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+
+import static org.cs3270.airlineprojectmain.AlertMessage.showAlert;
 
 public class AdminPageController implements Initializable {
     @FXML
@@ -25,6 +31,8 @@ public class AdminPageController implements Initializable {
     private TextField availableSeats;
     @FXML
     private TextField deleteTextID;
+    @FXML
+    private TextField updateTextID;
 
     @FXML
     private Button newFlight;
@@ -32,6 +40,35 @@ public class AdminPageController implements Initializable {
     private Button deleteFlightBt;
     @FXML
     private Button backToDB;
+    @FXML
+    private Button updateFlightBt;
+
+
+/**
+    private boolean isAdmin;
+
+     * Sets whether the current user is an admin and configures the UI.
+
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+        configureUIForRole();
+    }
+
+
+    /**
+     * Adjusts UI elements based on the user's role.
+
+    private void configureUIForRole() {
+        if (!isAdmin) {
+            // Hide admin-specific buttons
+            newFlight.setVisible(false);
+            newFlight.setManaged(false); // Prevents it from occupying space
+            deleteFlightBt.setVisible(false);
+            deleteFlightBt.setManaged(false);
+        }
+    }
+    */
+
 
     @FXML
     private TableView<FlightData> flightsTableView;
@@ -203,5 +240,63 @@ public class AdminPageController implements Initializable {
                 }
             }
         }
+    }
+
+    @FXML
+    public void onUpdateFlightBt() {
+        String updateQuery = "UPDATE flightdata SET flightDate = ?, departingCity = ?, destinationCity = ?, seatsAvailable = ? WHERE flightID = ?";
+
+        try (Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!");
+             PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
+
+            // Get inputs
+            int flightIdToUpdate = Integer.parseInt(updateTextID.getText());
+            LocalDateTime parsedDate = LocalDateTime.parse(flightDate.getText(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            String updatedDepartingCity = departingCity.getText();
+            String updatedDestinationCity = destinationCity.getText();
+            int updatedSeatsAvailable = Integer.parseInt(availableSeats.getText());
+
+            // Set parameters for the query
+            preparedStatement.setTimestamp(1, Timestamp.valueOf(parsedDate));
+            preparedStatement.setString(2, updatedDepartingCity);
+            preparedStatement.setString(3, updatedDestinationCity);
+            preparedStatement.setInt(4, updatedSeatsAvailable);
+            preparedStatement.setInt(5, flightIdToUpdate);
+
+            // Execute the update
+            int rowsUpdated = preparedStatement.executeUpdate();
+            if (rowsUpdated > 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Flight Updated");
+                alert.setHeaderText(null);
+                alert.setContentText("Flight details updated successfully!");
+                alert.showAndWait();;
+                populateFlightsFromDatabase(); // Refresh the TableView
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("No flight found with the provided ID!");
+                alert.showAndWait();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Database Error");
+            alert.setHeaderText(null);
+            alert.setContentText("An error occurred while updating the flight.");
+            alert.showAndWait();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText( "Please check your inputs and try again.");
+            alert.showAndWait();
+        }
+        // Refresh the ObservableList and TableView
+        flightData.clear();
+        populateFlightsFromDatabase();
     }
 }
