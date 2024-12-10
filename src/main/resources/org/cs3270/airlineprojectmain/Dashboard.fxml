@@ -18,12 +18,12 @@
             <TableColumn fx:id="flightDate" prefWidth="108.0" text="FlightDate" />
         </columns>
       </TableView>
-      <Label layoutX="183.0" layoutY="89.0" text="WELCOME: USER" />
+      <Label layoutX="183.0" layoutY="89.0" prefHeight="17.0" prefWidth="111.0" text="WELCOME: USER" />
       <Button fx:id="bookflightBt" layoutX="502.0" layoutY="64.0" mnemonicParsing="false" onAction="#switchToBooking" text="Book a flight" />
       <Button fx:id="deleteBt" layoutX="354.0" layoutY="22.0" mnemonicParsing="false" onAction="#onDelete" text="Delete a Flight" />
       <TextField fx:id="deleteText" layoutX="451.0" layoutY="22.0" promptText="Enter Flight Id:" />
       <Button fx:id="signout" layoutX="203.0" layoutY="64.0" mnemonicParsing="false" onAction="#signout" text="Press to Sign Out" />
       <Button fx:id="updateFlightBt" layoutX="451.0" layoutY="325.0" mnemonicParsing="false" onAction="#onUpdateFlightBt" text="Update Flights" />
-      <Button fx:id="createFlightBt" layoutX="501.0" layoutY="112.0" mnemonicParsing="false" onAction="#onCreateFlight" text="Create Flight" />
+      <Button fx:id="manageFlightsBt" layoutX="495.0" layoutY="106.0" mnemonicParsing="false" onAction="#onManageFlights" text="Manage Flights" />
    </children>
 </AnchorPane>

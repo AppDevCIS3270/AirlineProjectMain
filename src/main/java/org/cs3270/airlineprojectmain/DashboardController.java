@@ -42,7 +42,7 @@ public class DashboardController implements Initializable {
     private Button updateFlightBt;
 
     @FXML
-    private Button createFlightBt;
+    private Button manageFlightsBt;
 
 
     @FXML
@@ -202,10 +202,8 @@ Connection connection = null;
         return null;
 
     }
-
-    public void onCreateFlight(ActionEvent event){
-        System.out.println("welcome");
+    @FXML
+    public void onManageFlights(ActionEvent event){
         SwitchToScene.switchScene(event, "AdminPage.fxml");
     }
-
 }

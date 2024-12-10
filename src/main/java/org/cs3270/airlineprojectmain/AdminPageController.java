@@ -23,10 +23,15 @@ public class AdminPageController implements Initializable {
     private TextField destinationCity;
     @FXML
     private TextField availableSeats;
+    @FXML
+    private TextField deleteTextID;
 
     @FXML
     private Button newFlight;
-
+    @FXML
+    private Button deleteFlightBt;
+    @FXML
+    private Button backToDB;
 
     @FXML
     private TableView<FlightData> flightsTableView;
@@ -53,7 +58,7 @@ public class AdminPageController implements Initializable {
         departingCityColumn.setCellValueFactory(new PropertyValueFactory<>("departingCity"));
         destinationCityColumn.setCellValueFactory(new PropertyValueFactory<>("destinationCity"));
         flightDateColumn.setCellValueFactory(new PropertyValueFactory<>("flightDate"));
-        availableSeatsColumn.setCellValueFactory(new PropertyValueFactory<>("availableSeats"));
+        availableSeatsColumn.setCellValueFactory(new PropertyValueFactory<>("seatsAvailable"));
 
         // Populate the TableView with data from the database
         populateFlightsFromDatabase();
@@ -62,7 +67,11 @@ public class AdminPageController implements Initializable {
         flightsTableView.setItems(flightData);
     }
 
-    // Move this method outside the initialize method
+    public void back(ActionEvent event) {
+        SwitchToScene.switchScene(event, "Dashboard.fxml");
+    }
+
+    // Method to populate the TableView with data from the database
     private void populateFlightsFromDatabase() {
         Connection connection = null;
 
@@ -110,7 +119,6 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private void createNewFlight(ActionEvent event) throws SQLException {
-        System.out.println("Hello");
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!")) {
             String query = "INSERT INTO flightdata (flightDate, departingCity, destinationCity, seatsAvailable) VALUES (?, ?, ?, ?)";
 
@@ -130,15 +138,65 @@ public class AdminPageController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("The new Flight has been added to the Database");
                 alert.showAndWait();
-                /*
-                Need to fix this
-
-                 */
             } else {
                 System.out.println("Failed to add flight");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void ondeleteFlight(ActionEvent event) throws SQLException {
+        Connection connection = null;
+        try {
+            // Connect to the database
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database",
+                    "username",
+                    "Password!"
+            );
+
+            // Delete the flight by flightID
+            String deleteQuery = "DELETE FROM flightData WHERE flightID = ?";
+            PreparedStatement deleteStatement = connection.prepareStatement(deleteQuery);
+            int flightIdToDelete = Integer.parseInt(deleteTextID.getText());
+            deleteStatement.setInt(1, flightIdToDelete);
+            int rowsAffected = deleteStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Flight Deleted");
+
+                // Now reassign sequential flight IDs
+                String resetIdsQuery = "SET @count = 0;";
+                Statement resetIdsStatement = connection.createStatement();
+                resetIdsStatement.executeUpdate(resetIdsQuery); // Execute the SET statement
+
+                String updateQuery = "UPDATE flightdata SET flightID = (@count := @count + 1) ORDER BY flightID";
+                Statement updateStmt = connection.createStatement();
+                updateStmt.executeUpdate(updateQuery); // Execute the UPDATE statement
+
+                // Refresh the ObservableList and TableView
+                flightData.clear();
+                populateFlightsFromDatabase();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Flight Deleted Successfully");
+                alert.setHeaderText(null);
+                alert.setContentText("The flight has been removed, and IDs have been updated.");
+                alert.showAndWait();
+            } else {
+                System.out.println("Failed to remove flight");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }
