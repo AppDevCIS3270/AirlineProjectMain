@@ -42,6 +42,10 @@ public class DashboardController implements Initializable {
     private Button updateFlightBt;
 
     @FXML
+    private Button createFlightBt;
+
+
+    @FXML
     public void switchToBooking(ActionEvent event) {
         SwitchToScene.switchScene(event, "flightBooking.fxml");
     }
@@ -196,6 +200,12 @@ Connection connection = null;
             e.printStackTrace();
         }
         return null;
+
+    }
+
+    public void onCreateFlight(ActionEvent event){
+        System.out.println("welcome");
+        SwitchToScene.switchScene(event, "AdminPage.fxml");
     }
 
 }

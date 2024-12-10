@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cs3270.airlineprojectmain.AdminPageController">
+   <children>
+      <TextField fx:id="flightDate" layoutX="27.0" layoutY="123.0" prefHeight="26.0" prefWidth="102.0" />
+      <TextField fx:id="departingCity" layoutX="155.0" layoutY="123.0" prefHeight="26.0" prefWidth="102.0" />
+      <TextField fx:id="destinationCity" layoutX="297.0" layoutY="123.0" prefHeight="26.0" prefWidth="102.0" />
+      <TextField fx:id="availableSeats" layoutX="433.0" layoutY="123.0" prefWidth="102.0" />
+      <Label layoutX="250.0" layoutY="54.0" text="Create Flight" />
+      <Label layoutX="48.0" layoutY="82.0" text="Flight Date" />
+      <Label layoutX="167.0" layoutY="82.0" text="Departing City" />
+      <Label layoutX="312.0" layoutY="82.0" text="Destination City" />
+      <Label layoutX="443.0" layoutY="82.0" text="Available Seats" />
+      <Button fx:id="newFlight" layoutX="258.0" layoutY="175.0" mnemonicParsing="false" onAction="#createNewFlight" text="Create" />
+      <Label layoutX="19.0" layoutY="106.0" prefHeight="7.0" prefWidth="117.0" text="Format (2025-02-01 16:17:11)">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Label>
+      <TableView layoutX="78.0" layoutY="209.0" prefHeight="200.0" prefWidth="439.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="FlightID" />
+          <TableColumn prefWidth="88.0" text="Flight Date" />
+            <TableColumn prefWidth="84.0" text="Departing City" />
+            <TableColumn prefWidth="99.0" text="Destination City" />
+            <TableColumn prefWidth="91.0" text="Available Seats" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
