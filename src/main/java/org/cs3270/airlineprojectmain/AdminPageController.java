@@ -27,6 +27,7 @@ public class AdminPageController implements Initializable {
     @FXML
     private Button newFlight;
 
+
     @FXML
     private TableView<FlightData> flightsTableView;
     @FXML

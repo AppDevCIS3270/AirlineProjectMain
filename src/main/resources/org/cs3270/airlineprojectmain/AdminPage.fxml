@@ -25,13 +25,13 @@
             <Font size="9.0" />
          </font>
       </Label>
-      <TableView layoutX="78.0" layoutY="209.0" prefHeight="200.0" prefWidth="439.0">
+      <TableView fx:id="flightsTableView" layoutX="78.0" layoutY="209.0" prefHeight="200.0" prefWidth="439.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="FlightID" />
-          <TableColumn prefWidth="88.0" text="Flight Date" />
-            <TableColumn prefWidth="84.0" text="Departing City" />
-            <TableColumn prefWidth="99.0" text="Destination City" />
-            <TableColumn prefWidth="91.0" text="Available Seats" />
+          <TableColumn fx:id="flightIdColumn" prefWidth="75.0" text="FlightID" />
+          <TableColumn fx:id="flightDateColumn" prefWidth="88.0" text="Flight Date" />
+            <TableColumn fx:id="departingCityColumn" prefWidth="84.0" text="Departing City" />
+            <TableColumn fx:id="destinationCityColumn" prefWidth="99.0" text="Destination City" />
+            <TableColumn fx:id="availableSeatsColumn" prefWidth="91.0" text="Available Seats" />
         </columns>
       </TableView>
    </children>
