@@ -51,7 +51,8 @@ public class DashboardController implements Initializable {
     }
     @FXML
     private void signout(ActionEvent event){
-    User.setUserId(-1);
+        User.setUserId(-1);
+        User.setIsAdmin(false); // Reset admin status
         SwitchToScene.switchScene(event,"loginScene.fxml");
 }
     @FXML
@@ -124,6 +125,9 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if (!User.isAdmin()) {
+            manageFlightsBt.setVisible(false); // Hide "Manage Flights" button for non-admin users
+        }
         bookingID.setCellValueFactory(new PropertyValueFactory<BookedFlights, Integer>("bookingID"));
         flightID.setCellValueFactory(new PropertyValueFactory<BookedFlights, Integer>("flightID"));
         departingCity.setCellValueFactory(new PropertyValueFactory<BookedFlights, String>("departingCity"));
@@ -202,6 +206,7 @@ Connection connection = null;
         return null;
 
     }
+
     @FXML
     public void onManageFlights(ActionEvent event){
         SwitchToScene.switchScene(event, "AdminPage.fxml");

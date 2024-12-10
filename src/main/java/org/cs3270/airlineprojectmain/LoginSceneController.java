@@ -19,9 +19,10 @@ public class LoginSceneController {
     @FXML
     private Stage stage;
 
-    public void setStage(Stage stage){
+    public void setStage(Stage stage) {
         this.stage = stage;
     }
+
     @FXML
     private Scene scene;
     @FXML
@@ -40,31 +41,34 @@ public class LoginSceneController {
     @FXML
     private PasswordField passwordField;
     Connection connection = null;
+
     @FXML
-    public void switchToSignupScene(ActionEvent event){
+    public void switchToSignupScene(ActionEvent event) {
         SwitchToScene.switchScene(event, "signupScene.fxml");
     }
+
     @FXML
     public void switchToResetScene(ActionEvent event) {
         SwitchToScene.switchScene(event, "passwordReset.fxml");
     }
+
     @FXML
-    public void switchToDashboardScene(ActionEvent event){SwitchToScene.switchScene(event, "Dashboard.fxml");
+    public void switchToDashboardScene(ActionEvent event) {
+        SwitchToScene.switchScene(event, "Dashboard.fxml");
     }
 
 
-
     @FXML
-    private void onLoginPress(){
-        try{
+    private void onLoginPress() {
+        try {
             System.out.println(usernameField.getText());
             System.out.println(passwordField.getText());
 
             // attempts to make a connection to our database
             connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!");
 
-            // query to match username and password
-            String query = "SELECT * FROM users WHERE BINARY username = ? AND  BINARY password = ?";
+            // query to match username, password, and Admin status
+            String query = "SELECT * FROM users WHERE BINARY username = ? AND BINARY password = ?";
 
             // uses a prepared statement so we can implement our own username and passwords
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -77,30 +81,32 @@ public class LoginSceneController {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             // checks to see if username and password are available in the table
-            if(resultSet.next()){
+            if (resultSet.next()) {
+                // Check if user is an admin
+                boolean isAdmin = resultSet.getInt("Admin") == 1;
+
+                // If login is successful, set userId and admin status in User class
+                User.setUserId(resultSet.getInt("user_id"));
+                User.setIsAdmin(isAdmin); // Store admin status
+
                 ErrorText.setTextFill(Paint.valueOf("#07f041"));
                 ErrorText.setText("Login Successful");
-                System.out.println("Login Successful " + resultSet.getString("user_id"));
-                User.setUserId(resultSet.getInt("user_id"));
-                dashboardBt.setVisible(true);
+                System.out.println(User.isAdmin());
 
-            }
-            else{
+                dashboardBt.setVisible(true);  // Show the dashboard button for all users
+            } else {
+                // If no match for username/password, display error
                 ErrorText.setTextFill(Paint.valueOf("#f00707"));
-                ErrorText.setText("invalid username or password");
+                ErrorText.setText("Invalid username or password");
                 System.out.println("Invalid username or password");
             }
-        }
-        catch (Exception e){
-            // prints whatever errors pop up during run time
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally {
-            if(connection != null){
-                try{
+        } finally {
+            if (connection != null) {
+                try {
                     connection.close();
-                }
-                catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }

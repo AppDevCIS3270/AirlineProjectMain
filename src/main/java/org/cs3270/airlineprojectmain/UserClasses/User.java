@@ -13,7 +13,6 @@ public class User {
     private String ssn;
     private String securityQuestion;
     private String securityAnswer;
-    boolean isAdmin;
     // Constructor
     public User(int userId, String firstName, String lastName, String address, String zip,String state, String username, String password, String email, String ssn) {
         this.userId = userId;
@@ -35,10 +34,11 @@ public class User {
     public String getZip() { return zip; }
     public String getUsername() { return username; }
     public String getPassword() { return password; }
-
+    private static boolean isAdmin;
+    public static boolean isAdmin() {return isAdmin;}
+    public static void setIsAdmin(boolean admin) {isAdmin = admin;}
     public static void setUserId(int userId){
         User.userId = userId;
     }
-
 
 }
