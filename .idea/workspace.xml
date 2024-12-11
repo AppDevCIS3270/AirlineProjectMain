@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="hide manage flights button&#10;for all other users">
+    <list default="true" id="eed88197-eb22-4536-80c2-4bc354156ba4" name="Changes" comment="admin can update flights">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/LoginSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cs3270/airlineprojectmain/UserClasses/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,15 +235,7 @@
       <option name="project" value="LOCAL" />
       <updated>1733863854582</updated>
     </task>
-    <task id="LOCAL-00017" summary="hide manage flights button&#10;for all other users">
-      <option name="closed" value="true" />
-      <created>1733867880346</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1733867880347</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,8 +263,7 @@
     <MESSAGE value="admin is able to delete flights" />
     <MESSAGE value="admin delete edit" />
     <MESSAGE value="admin can update flights" />
-    <MESSAGE value="hide manage flights button&#10;for all other users" />
-    <option name="LAST_COMMIT_MESSAGE" value="hide manage flights button&#10;for all other users" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin can update flights" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
