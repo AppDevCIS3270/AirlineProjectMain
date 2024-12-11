@@ -1,6 +1,6 @@
 package org.cs3270.airlineprojectmain.UserClasses;
 
-public class User {
+public abstract class User {
     private static int userId;
     private String firstName;
     private String lastName;

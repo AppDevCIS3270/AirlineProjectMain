@@ -155,7 +155,7 @@ public class AdminPageController implements Initializable {
     }
 
     @FXML
-    private void createNewFlight(ActionEvent event) throws SQLException {
+    private void createNewFlight(ActionEvent event){
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://cis3270airlinedatabase.mysql.database.azure.com/database", "username", "Password!")) {
             String query = "INSERT INTO flightdata (flightDate, departingCity, destinationCity, seatsAvailable) VALUES (?, ?, ?, ?)";
 
