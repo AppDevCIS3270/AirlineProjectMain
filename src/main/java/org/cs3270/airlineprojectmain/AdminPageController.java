@@ -44,31 +44,6 @@ public class AdminPageController implements Initializable {
     private Button updateFlightBt;
 
 
-/**
-    private boolean isAdmin;
-
-     * Sets whether the current user is an admin and configures the UI.
-
-    public void setAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
-        configureUIForRole();
-    }
-
-
-    /**
-     * Adjusts UI elements based on the user's role.
-
-    private void configureUIForRole() {
-        if (!isAdmin) {
-            // Hide admin-specific buttons
-            newFlight.setVisible(false);
-            newFlight.setManaged(false); // Prevents it from occupying space
-            deleteFlightBt.setVisible(false);
-            deleteFlightBt.setManaged(false);
-        }
-    }
-    */
-
 
     @FXML
     private TableView<FlightData> flightsTableView;
